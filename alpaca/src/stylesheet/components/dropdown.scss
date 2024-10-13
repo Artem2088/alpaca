@@ -1,0 +1,98 @@
+@use '../../utils/variables';
+
+.dropdown {
+    position: fixed;
+    background-color: variables.$COLOR_HOVER_NAV;
+    padding: 0;
+    max-width: 20rem;
+    width: 100%;
+    border-bottom-left-radius: .5rem;
+    border-bottom-right-radius: .5rem;
+    top: 8%;
+    left: 33%;
+    opacity: 0;
+    transition: visibility 0s, opacity .2s linear;
+    visibility: hidden;
+
+    &__item {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        height: 2.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+       
+        cursor: pointer;
+
+        &_submenu {
+            width: 21.875rem;
+        }
+        
+        & > div {
+            display: flex;
+            position: relative;
+            max-width: 20rem;
+            width: 100%;
+        }    
+
+        & .dropdown__link-subsubmenu svg {
+            position: fixed;
+            top: 13.6875rem;
+            right: 41.375rem;
+            transform: rotate(180deg);
+        }
+
+        @media (hover: hover) {
+            &:hover .dropdown__link-subsubmenu svg {
+                transform: rotate(90deg);
+            }
+        }
+    }
+
+    & a {
+        padding-block: .5rem;
+        padding-left: 1.125rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 16.4375rem;
+        position: relative;
+    }
+
+
+    &__item:last-child {
+        border-bottom: none;
+    }
+
+    @media (hover: hover) {
+        &__item.dropdown__item_submenu:hover > div,
+        &__item:hover {
+            border-bottom-left-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+            background-color: variables.$COLOR_MENU;
+        }
+        &__link-subsubmenu:hover svg {
+            transform: rotate(90deg);
+        }
+        &__item.dropdown__item_submenu:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+.dropdown::after {
+    content: "";
+    position: absolute;
+    left: 18%;
+    bottom: 10rem;
+    margin-left: -16px;
+    border: 1.25rem solid transparent;
+    border-top: .875rem solid variables.$COLOR_HOVER_NAV;
+    transform: rotate(180deg);
+}
+
+.dropdown.show,
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+    transition: all 1s ease;
+}

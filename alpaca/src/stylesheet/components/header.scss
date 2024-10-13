@@ -1,0 +1,112 @@
+@use '../../utils/variables';
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: variables.$COLOR_MENU;
+    box-shadow: variables.$DROP_SHADOW_MENU;
+    max-height: 5rem;
+    height: 100%;
+    padding-inline: .625rem;
+    
+
+    &__container {
+        display: flex;
+        max-width: 74.75rem;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+    }
+
+    &__burger-container {
+        display: flex;
+        align-items: center;
+    }
+
+    @media (hover: hover) {
+        &__logo:hover {
+            opacity: .7;
+        }
+    }
+    
+}
+
+.contacts {
+    display: flex;
+    align-items: center;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        color: variables.$COLOR_TEXT;
+        font-family: variables.$font-medium;
+        font-size: 1.125rem;
+        max-height: 1.33rem;
+        height: 100%;
+        white-space: nowrap;
+    }
+
+    &__wrapper a {
+        display: flex;
+        align-items: center;
+    }
+
+    &__wrapper a svg {
+        margin-right: .625rem;
+    }
+
+    @media (hover: hover) {
+        &__wrapper a:hover {
+            color: variables.$COLOR_HOVER;
+        }
+    }
+   
+}
+
+.burger,
+.phone-mobile-icons {
+    display: none;
+}
+@media (max-width: 1100px) {
+    .header__container {
+        justify-content: center;
+    }
+    .contacts__wrapper {
+        font-size: 1rem;
+    }
+}
+@media (max-width: 768px) {
+    .burger {
+        display: flex;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+    .header {
+        padding-inline: 1.375rem;
+        z-index: 100;
+        position: relative;
+    }
+    .header__container {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 375px) {
+    .contacts {
+        display: none;
+    }
+    .phone-mobile-icons {
+        display: block;
+        margin-right: 1.75rem;
+    }
+    .header {
+        padding-inline: 1.25rem;
+    } 
+}

@@ -1,0 +1,24 @@
+.dropdown.subDropdown {
+    height: auto;
+    border-radius: 0.5rem;
+    top: -116%;
+    left: 21.875rem;
+    width: 11.25rem;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+.dropdown.show.subDropdown.show {
+    opacity: 1;
+    visibility: visible;
+}
+.dropdown.subDropdown::after {
+    content: "";
+    position: absolute;
+    left: -7%;
+    bottom: 7px;
+    margin-left: -16px;
+    border: 16px solid transparent;
+    border-top: 0.875rem solid rgb(37, 40, 48);
+    transform: rotate(90deg);
+}
